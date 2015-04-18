@@ -5,7 +5,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class PartControllerBaseEntity extends TileEntity implements IMultiblockController {
+public abstract class PartControllerBaseEntity extends TileEntity implements IMultiblockController {
 
     private boolean isFormed = false;
 

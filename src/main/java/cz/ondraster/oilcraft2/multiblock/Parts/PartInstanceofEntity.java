@@ -1,9 +1,9 @@
-package cz.ondraster.oilcraft2.multiblock.PartTypes;
+package cz.ondraster.oilcraft2.multiblock.Parts;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
-public class PartInstanceofEntity extends PartBaseEntity {
+public abstract class PartInstanceofEntity extends PartBaseEntity {
     Class<? extends Block> blockToCheckFor;
 
     public PartInstanceofEntity(Class<? extends Block> block) {

@@ -1,4 +1,4 @@
-package cz.ondraster.oilcraft2.multiblock.PartTypes;
+package cz.ondraster.oilcraft2.multiblock.Parts;
 
 import cz.ondraster.oilcraft2.api.multiblock.IMultiblockPart;
 import net.minecraft.nbt.NBTTagCompound;
@@ -50,5 +50,10 @@ public abstract class PartBaseEntity extends TileEntity implements IMultiblockPa
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
         load(compound);
+    }
+
+    @Override
+    public boolean isPartOfStructure() {
+        return isFormed;
     }
 }
