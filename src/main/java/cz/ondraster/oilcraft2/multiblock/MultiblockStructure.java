@@ -6,12 +6,8 @@ import net.minecraft.world.World;
 
 public class MultiblockStructure {
     private MultiblockLayer[] layers;
-    private int width;
-    private int depth;
 
-    public MultiblockStructure(int width, int depth, int height) {
-        this.width = width;
-        this.depth = depth;
+    public MultiblockStructure(int height) {
         this.layers = new MultiblockLayer[height];
     }
 
@@ -21,18 +17,24 @@ public class MultiblockStructure {
     }
 
     public boolean checkStructure(World world, BlockPos position) {
-        for (int i = 0; i < layers.length; i++) {
-            if (layers[i] == null) {
+        for (MultiblockLayer layer : layers) {
+            if (layer == null) {
                 OilLog.err("Given structure's layer was null! ABORT ABORT");
                 return false;
             }
 
-            boolean retval = layers[i].checkLevel(world, position);
+            boolean retval = layer.checkLevel(world, position);
             if (!retval) {
                 return false;
             }
         }
 
         return true;
+    }
+
+    public void markStructure(World world, BlockPos position) {
+        for (MultiblockLayer layer : layers) {
+            layer.markLevel(world, position);
+        }
     }
 }

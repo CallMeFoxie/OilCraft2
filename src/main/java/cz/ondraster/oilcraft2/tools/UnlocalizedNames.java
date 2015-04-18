@@ -12,5 +12,7 @@ public class UnlocalizedNames {
         public static final String blockHeater = MODID + "_blockheater";
         public static final String blockValve = MODID + "_blockvalve";
         public static final String blockValveHT = MODID + "_blockvalveht";
+        public static final String blockHatch = MODID + "_blockhatch";
+        public static final String blockHatchHT = MODID + "_blockhatchht";
     }
 }
