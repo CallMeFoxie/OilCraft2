@@ -7,7 +7,10 @@ public class UnlocalizedNames {
     public static final String VERSION = "@VERSION@";
 
     public class Factory {
-        public static final String blockCasing = MODID + "blockcasing";
-        public static final String blockCasingHT = MODID + "blockcasinght";
+        public static final String blockCasing = MODID + "_blockcasing";
+        public static final String blockCasingHT = MODID + "_blockcasinght";
+        public static final String blockHeater = MODID + "_blockheater";
+        public static final String blockValve = MODID + "_blockvalve";
+        public static final String blockValveHT = MODID + "_blockvalveht";
     }
 }

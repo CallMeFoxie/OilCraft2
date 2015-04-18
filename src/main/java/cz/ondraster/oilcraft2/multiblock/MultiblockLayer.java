@@ -1,7 +1,7 @@
 package cz.ondraster.oilcraft2.multiblock;
 
-import cz.ondraster.oilcraft2.tools.BlockPos;
 import cz.ondraster.oilcraft2.api.multiblock.IMultiblockPart;
+import cz.ondraster.oilcraft2.tools.BlockPos;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -16,11 +16,7 @@ public abstract class MultiblockLayer {
         this.structure = structure;
     }
 
-    public void setStructure(MultiblockStructure structure) {
-        this.structure = structure;
-    }
-
-    public boolean isAvailable(TileEntity tileEntity) {
+    public static boolean isAvailable(TileEntity tileEntity) {
         if (tileEntity instanceof IMultiblockPart) {
             IMultiblockPart part = (IMultiblockPart) tileEntity;
             if (!part.isPartOfStructure())
@@ -30,7 +26,7 @@ public abstract class MultiblockLayer {
         return false;
     }
 
-    public IMultiblockPart getMachinePart(World world, BlockPos pos) {
+    public static IMultiblockPart getMachinePart(World world, BlockPos pos) {
         TileEntity tileEntity = pos.getTE(world);
         if (tileEntity == null)
             return null;
@@ -39,6 +35,10 @@ public abstract class MultiblockLayer {
             return null;
 
         return (IMultiblockPart) tileEntity;
+    }
+
+    public void setStructure(MultiblockStructure structure) {
+        this.structure = structure;
     }
 
     public void markPart(World world, BlockPos pos, BlockPos controller) {
@@ -57,6 +57,7 @@ public abstract class MultiblockLayer {
      * @return whether level checked fine
      */
     protected abstract boolean checkLevel(World world, BlockPos position);
+
 
     /**
      * @param world    World to mark in

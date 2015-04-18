@@ -7,19 +7,19 @@ import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockHeater extends PartBlockBlock {
-    public BlockHeater() {
+public class BlockValve extends PartBlockBlock {
+    public BlockValve() {
         super();
-        setBlockName(UnlocalizedNames.Factory.blockHeater);
+        setBlockName(UnlocalizedNames.Factory.blockValve);
     }
 
     @Override
     public Block getBlockInstance() {
-        return FactoryBlocks.blockHeater;
+        return FactoryBlocks.blockValve;
     }
 
     @Override
     public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-        return new TEHeater();
+        return new TEValve();
     }
 }
