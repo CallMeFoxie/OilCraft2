@@ -1,9 +1,9 @@
 package cz.ondraster.oilcraft2.factory.structures.heater;
 
-import cz.ondraster.oilcraft2.tools.BlockPos;
 import cz.ondraster.oilcraft2.api.multiblock.IMultiblockPart;
 import cz.ondraster.oilcraft2.factory.FactoryBlocks;
 import cz.ondraster.oilcraft2.multiblock.MultiblockLayer;
+import cz.ondraster.oilcraft2.tools.BlockPos;
 import net.minecraft.world.World;
 
 public class HeaterLevelBottom extends MultiblockLayer {
@@ -13,33 +13,27 @@ public class HeaterLevelBottom extends MultiblockLayer {
 
         IMultiblockPart part;
 
-        if ((part = getMachinePart(world, baseLevel.getLeft())) == null)
+        if (!isValid(world, baseLevel.getLeft()))
             return false;
-        if (part.getMasterBlock() != FactoryBlocks.blockHeater)
+        if (!isValid(world, baseLevel.getLeft().getFarther()))
             return false;
-
-        if ((part = getMachinePart(world, baseLevel.getLeft().getFarther())) == null)
+        if (!isValid(world, baseLevel.getFarther()))
             return false;
-        if (part.getMasterBlock() != FactoryBlocks.blockHeater)
+        if (!isValid(world, baseLevel))
             return false;
-
-        if ((part = getMachinePart(world, baseLevel.getFarther())) == null)
+        if (!isValid(world, baseLevel.getRight()))
             return false;
-        if (part.getMasterBlock() != FactoryBlocks.blockHeater)
+        if (!isValid(world, baseLevel.getRight().getFarther()))
             return false;
 
-        if ((part = getMachinePart(world, baseLevel)) == null)
-            return false;
-        if (part.getMasterBlock() != FactoryBlocks.blockHeater)
+        return true;
+    }
+
+    private boolean isValid(World world, BlockPos pos) {
+        IMultiblockPart part = getMachinePart(world, pos);
+        if (part == null)
             return false;
 
-        if ((part = getMachinePart(world, baseLevel.getRight())) == null)
-            return false;
-        if (part.getMasterBlock() != FactoryBlocks.blockHeater)
-            return false;
-
-        if ((part = getMachinePart(world, baseLevel.getRight().getFarther())) == null)
-            return false;
         if (part.getMasterBlock() != FactoryBlocks.blockHeater)
             return false;
 
