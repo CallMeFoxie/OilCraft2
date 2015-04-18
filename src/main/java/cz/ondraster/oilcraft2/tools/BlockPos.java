@@ -136,6 +136,14 @@ public class BlockPos {
         return this;
     }
 
+    public BlockPos getBelow(int blocks) {
+        return new BlockPos(x, y - 1, z, direction);
+    }
+
+    public BlockPos getAbove(int blocks) {
+        return new BlockPos(x, y + 1, z, direction);
+    }
+
     public BlockPos getLeft() {
         return getLeft(1);
     }
@@ -150,6 +158,14 @@ public class BlockPos {
 
     public BlockPos getCloser() {
         return getCloser(1);
+    }
+
+    public BlockPos getBelow() {
+        return getBelow(1);
+    }
+
+    public BlockPos getAbove() {
+        return getAbove(1);
     }
 
     public Block getBlock(World world) {

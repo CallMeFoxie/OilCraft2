@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 public class HeaterLevelBottom extends MultiblockLayer {
     @Override
     protected boolean checkLevel(World world, BlockPos position) {
-        BlockPos baseLevel = new BlockPos(position.getX(), position.getY() - 1, position.getZ());
+        BlockPos baseLevel = position.getBelow();
 
         IMultiblockPart part;
 
@@ -42,7 +42,7 @@ public class HeaterLevelBottom extends MultiblockLayer {
 
     @Override
     protected void markLevel(World world, BlockPos position) {
-        BlockPos baseLevel = new BlockPos(position.getX(), position.getY() - 1, position.getZ());
+        BlockPos baseLevel = position.getBelow();
         markPart(world, baseLevel.getLeft(), position);
         markPart(world, baseLevel.getLeft().getFarther(), position);
         markPart(world, baseLevel, position);
